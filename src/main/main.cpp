@@ -1,10 +1,9 @@
-
 /*
    "Hello World" MPI Test Program
  */
 #include <mpi.h>
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
+#include <cstring>
 #include <iostream>
 #include "mpi_fun/pi/pi_calc.h"
 
@@ -66,7 +65,7 @@ int main(int argc, char *argv[])
     strncat(buff, "reporting for duty\n", BUFSIZE-1);
     printf("Worker %d (%p) running %d iterations...\n", myid, &piCalc, piCalc.get_iterations());
     result = piCalc.run();
-    printf("Sizeof result: %d\n", sizeof(result));
+    printf("Sizeof result: %lu\n", sizeof(result));
     printf("Worker %d got result: %.20F\n", myid, result);
 
     //TODO: should be MPI_DOUBLE, no?
